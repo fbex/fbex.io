@@ -27,7 +27,7 @@
 							<a
 								href="/notes"
 								class="hidden sm:flex"
-								class:active={$page.url.pathname === '/notes'}
+								class:active={$page.url.pathname.startsWith('/notes')}
 							>
 								Notes
 							</a>
@@ -86,7 +86,9 @@
 								class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
 							>
 								<li><a href="/" class:active={$page.url.pathname === '/'}>Home</a></li>
-								<li><a href="/notes" class:active={$page.url.pathname === '/notes'}>Notes</a></li>
+								<li>
+									<a href="/notes" class:active={$page.url.pathname.startsWith('/notes')}>Notes</a>
+								</li>
 								<li><a href="https://github.com/fbex">Projects</a></li>
 							</ul>
 						</div>
