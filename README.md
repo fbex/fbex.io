@@ -1,6 +1,6 @@
-# create-svelte
+# fbex.io
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+Source of my personal website and blog [fbex.io](https://fbex.io).
 
 ## Creating a project
 
