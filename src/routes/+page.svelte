@@ -1,6 +1,12 @@
-<script>
+<script lang="ts">
 	import logo from '$lib/images/fbex.svg';
+	import { title } from '$lib/info';
 </script>
+
+<svelte:head>
+	<title>{title}</title>
+	<meta name="description" content="Building software and writing about stuff." />
+</svelte:head>
 
 <main>
 	<div class="hero min-h-[calc(100vh-250px-88px)] bg-base-200">

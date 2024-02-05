@@ -1,6 +1,7 @@
 <script>
 	import logo from '$lib/images/fbex-filled.svg';
 	import { page } from '$app/stores';
+	import { github } from '$lib/info';
 
 	const isDarkMode =
 		typeof window !== 'undefined'
@@ -32,7 +33,7 @@
 								Notes
 							</a>
 						</li>
-						<li><a href="https://github.com/fbex" class="hidden sm:flex">Projects</a></li>
+						<li><a href={github} class="hidden sm:flex">Projects</a></li>
 						<!--Theme switcher-->
 						<li>
 							<label class="swap swap-rotate">

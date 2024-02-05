@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { PageServerData } from './$types';
+	import { title } from '$lib/info';
 
 	export let data: PageServerData;
 
@@ -10,6 +11,11 @@
 		return preview;
 	}
 </script>
+
+<svelte:head>
+	<title>Notes | {title}</title>
+	<meta name="description" content="Collection of blog posts" />
+</svelte:head>
 
 <h1>Notes</h1>
 <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
