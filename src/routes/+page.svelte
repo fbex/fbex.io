@@ -6,6 +6,7 @@
 <svelte:head>
 	<title>{title}</title>
 	<meta name="description" content="Building software and writing about stuff." />
+	<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS Feed">
 </svelte:head>
 
 <main>
