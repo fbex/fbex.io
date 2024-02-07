@@ -18,6 +18,7 @@ export type PostMetadata = Post & {
 export type Post = {
 	title: string;
 	date: string;
+	updated?: string;
 	slug: string;
 	isIndexFile: boolean;
 	preview: {
