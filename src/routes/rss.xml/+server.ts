@@ -1,5 +1,4 @@
-// This is an endpoint that generates a basic rss feed for your posts.
-// It is OK to delete this file if you don't want an RSS feed.
+// This is an endpoint that generates a basic rss feed.
 // credit: https://scottspence.com/posts/make-an-rss-feed-with-sveltekit#add-posts-for-the-rss-feed
 
 import { posts } from '$lib/server/posts';

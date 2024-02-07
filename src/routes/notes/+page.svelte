@@ -15,7 +15,7 @@
 <svelte:head>
 	<title>Notes | {title}</title>
 	<meta name="description" content="Collection of blog posts" />
-	<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS Feed">
+	<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS Feed" />
 </svelte:head>
 
 <h1>Notes</h1>
