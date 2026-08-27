@@ -1,0 +1,42 @@
+---
+import Icon from './Icon.astro';
+import { site } from '../data/site';
+---
+
+<nav aria-label="Social links" class="reveal" data-rise>
+  <ul class="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+    {
+      site.socials.map((social) => (
+        <li>
+          <a
+            href={social.url}
+            data-magnetic
+            target={social.icon === 'mail' ? undefined : '_blank'}
+            rel={social.icon === 'mail' ? undefined : 'me noopener noreferrer'}
+            aria-label={`${social.name} — ${social.handle}`}
+            class="group relative flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.035] px-4 py-2.5 text-sm text-mute backdrop-blur-md transition-colors duration-300 hover:border-white/25 hover:text-chalk sm:px-5"
+          >
+            {/* Sits under the content and lights up on hover. */}
+            <span class="pointer-events-none absolute inset-0 rounded-full bg-[linear-gradient(120deg,var(--color-violet),var(--color-cyan))] opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-25" />
+            <Icon
+              name={social.icon}
+              class="relative shrink-0 transition-transform duration-300 group-hover:-translate-y-px"
+            />
+            <span class="relative font-medium tracking-tight">{social.name}</span>
+            <span class="relative hidden font-mono text-xs text-mute/70 transition-colors duration-300 group-hover:text-cyan sm:inline">
+              {social.handle}
+            </span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<script>
+  import { makeMagnetic } from '../lib/motion';
+
+  document
+    .querySelectorAll<HTMLElement>('[data-magnetic]')
+    .forEach((el) => makeMagnetic(el));
+</script>

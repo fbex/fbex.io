@@ -1,0 +1,48 @@
+---
+/**
+ * The animated field behind everything. The CSS gradient on the wrapper is
+ * the fallback: it is what a visitor sees if WebGL is unavailable or the
+ * script fails, and it sits under the canvas otherwise.
+ */
+---
+
+<div class="fixed inset-0 -z-10 overflow-hidden bg-ink" aria-hidden="true">
+  <div
+    class="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_40%,#241059_0%,#0b0a24_45%,#05060d_100%)]"
+  >
+  </div>
+
+  <canvas id="backdrop" class="absolute inset-0 h-full w-full"></canvas>
+
+  <!-- Fine grid, then film grain: two thin texture passes that keep the
+       gradient from reading as a flat CSS blur. -->
+  <div class="grid-veil absolute inset-0 opacity-70"></div>
+  <div class="grain absolute inset-0 opacity-[0.16] mix-blend-overlay"></div>
+</div>
+
+<style>
+  .grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
+    animation: grain-shift 6s steps(6) infinite;
+  }
+
+  @keyframes grain-shift {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-3%, 2%); }
+    40% { transform: translate(2%, -3%); }
+    60% { transform: translate(-2%, -2%); }
+    80% { transform: translate(3%, 1%); }
+    100% { transform: translate(0, 0); }
+  }
+</style>
+
+<script>
+  import { mountBackdrop } from '../lib/backdrop';
+
+  const canvas = document.getElementById('backdrop');
+  if (canvas instanceof HTMLCanvasElement) {
+    const teardown = mountBackdrop(canvas);
+    if (!teardown) canvas.remove(); // no WebGL — let the gradient stand alone
+  }
+</script>

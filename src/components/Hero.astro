@@ -1,0 +1,79 @@
+---
+import SocialRail from './SocialRail.astro';
+import { site } from '../data/site';
+
+// Split up front rather than in JS: the letters are in the HTML from the
+// first byte, so there is no layout shift when the intro takes over.
+const letters = site.handle.split('');
+---
+
+<main
+  id="main"
+  class="relative flex flex-1 flex-col items-center justify-center px-6 py-[clamp(1rem,3vh,2rem)] text-center"
+>
+  <p
+    class="reveal mb-[clamp(0.75rem,3.5vh,1.75rem)] font-mono text-[11px] tracking-[0.42em] text-mute uppercase sm:text-xs"
+    data-rise
+  >
+    Software Engineer
+  </p>
+
+  <h1 class="mb-[clamp(0.75rem,2.5vh,1.5rem)] leading-none" aria-label={site.handle}>
+    <span class="flex justify-center">
+      {
+        letters.map((letter) => (
+          <span class="inline-block overflow-hidden pb-[0.12em]">
+            <span
+              class="wordmark reveal inline-block text-[clamp(3rem,min(21vw,24vh),13rem)] font-semibold tracking-[-0.055em]"
+              data-letter
+            >
+              {letter}
+            </span>
+          </span>
+        ))
+      }
+    </span>
+  </h1>
+
+  <p
+    class="reveal flex h-7 items-center justify-center font-mono text-sm text-mute sm:text-base"
+    data-rise
+  >
+    <span class="mr-2 text-cyan/70" aria-hidden="true">&gt;</span>
+    <span id="role" class="min-w-[16ch] text-left sm:min-w-[22ch]"
+      >{site.roles[0]}</span
+    >
+    <span class="caret ml-0.5 inline-block h-[1.1em] w-[2px] bg-cyan align-middle"
+    ></span>
+  </p>
+
+  <div class="mt-[clamp(1.25rem,5vh,3.5rem)]">
+    <SocialRail />
+  </div>
+</main>
+
+<style>
+  .caret {
+    animation: blink 1.15s steps(2, start) infinite;
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  import { cycleRoles, playIntro } from '../lib/motion';
+  import { site } from '../data/site';
+
+  playIntro();
+
+  const role = document.getElementById('role');
+  if (role) cycleRoles(role, site.roles);
+</script>
