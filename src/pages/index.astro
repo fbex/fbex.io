@@ -1,0 +1,48 @@
+---
+import Backdrop from '../components/Backdrop.astro';
+import Hero from '../components/Hero.astro';
+import Base from '../layouts/Base.astro';
+---
+
+<Base>
+  <Backdrop />
+
+  <a
+    href="#main"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-full focus:bg-ink-soft focus:px-4 focus:py-2"
+  >
+    Skip to content
+  </a>
+
+  <!-- Header, hero and footer share one flex column rather than being pinned
+       with fixed positioning, so a short landscape window scrolls cleanly
+       instead of stacking the chrome on top of the hero. -->
+  <div class="relative z-10 flex min-h-[100svh] flex-col">
+    <header
+      class="reveal flex items-center justify-between px-6 py-[clamp(0.9rem,3.2vh,1.5rem)] sm:px-10"
+      data-rise
+    >
+      <span
+        class="flex items-center gap-2.5 font-mono text-xs tracking-widest text-mute uppercase"
+      >
+        <span class="relative flex h-2 w-2">
+          <span
+            class="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan opacity-60"
+          ></span>
+          <span class="relative inline-flex h-2 w-2 rounded-full bg-cyan"></span>
+        </span>
+        fbex.io
+      </span>
+    </header>
+
+    <Hero />
+
+    <footer
+      class="reveal flex items-center justify-between px-6 py-[clamp(0.9rem,3.2vh,1.5rem)] font-mono text-[11px] tracking-wider text-mute/85 uppercase sm:px-10"
+      data-rise
+    >
+      <span>&copy; {new Date().getFullYear()} fbex</span>
+      <span class="hidden sm:inline">Projects &amp; writing &mdash; soon</span>
+    </footer>
+  </div>
+</Base>
