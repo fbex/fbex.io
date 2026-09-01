@@ -60,6 +60,14 @@ noise shader. It degrades in three steps: no WebGL falls back to the CSS
 radial gradient underneath the canvas; `prefers-reduced-motion` renders one
 static frame and stops the loop; a hidden tab pauses rendering entirely.
 
+## Contributing
+
+Commit messages follow [Conventional Commits](https://www.conventionalcommits.org):
+`type(scope): summary`, for example `feat(socials): add Bluesky`.
+
+Branch names follow [Conventional Branch](https://conventionalbranch.org):
+`type/description`, for example `feat/projects-collection` or `fix/backdrop-pause`.
+
 ## Roadmap
 
 Not built yet, but the structure anticipates it:
