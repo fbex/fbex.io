@@ -11,8 +11,8 @@ import { site } from '../data/site';
           <a
             href={social.url}
             data-magnetic
-            target={social.icon === 'mail' ? undefined : '_blank'}
-            rel={social.icon === 'mail' ? undefined : 'me noopener noreferrer'}
+            target="_blank"
+            rel="me noopener noreferrer"
             aria-label={`${social.name} — ${social.handle}`}
             class="group relative flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.035] px-4 py-2.5 text-sm text-mute backdrop-blur-md transition-colors duration-300 hover:border-white/25 hover:text-chalk sm:px-5"
           >
