@@ -8,7 +8,7 @@ export interface SocialLink {
   name: string;
   url: string;
   /** Key into the icon map in components/Icon.astro */
-  icon: 'github' | 'x' | 'linkedin' | 'mail';
+  icon: 'github' | 'x' | 'bluesky' | 'mastodon';
   /** Shown next to the name in the hover row. */
   handle: string;
 }
@@ -29,8 +29,8 @@ export const site = {
 
   socials: [
     { name: 'GitHub', url: 'https://github.com/fbex', icon: 'github', handle: '@fbex' },
-    { name: 'X', url: 'https://x.com/fbex', icon: 'x', handle: '@fbex' },
-    { name: 'LinkedIn', url: 'https://linkedin.com/in/fbex', icon: 'linkedin', handle: 'in/fbex' },
-    { name: 'Email', url: 'mailto:hello@fbex.io', icon: 'mail', handle: 'hello@fbex.io' },
+    { name: 'X', url: 'https://x.com/fbex0v', icon: 'x', handle: '@fbex0v' },
+    { name: 'Bluesky', url: 'https://bsky.app/profile/fbex.bsky.social', icon: 'bluesky', handle: '@fbex' },
+    { name: 'Mastodon', url: 'https://mastodon.social/@fbex', icon: 'mastodon', handle: '@fbex' },
   ] satisfies SocialLink[],
 } as const;
